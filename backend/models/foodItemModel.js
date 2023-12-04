@@ -1,4 +1,6 @@
 import mongoose from "mongoose";
+const { Schema } = mongoose;
+
 // FoodItems:
 // _id: Unique identifier for each food item (MongoDB's ObjectID)
 // restaurantId: Identifier of the restaurant or cafe associated with the food item (references _id in Users collection)
@@ -13,12 +15,9 @@ import mongoose from "mongoose";
 
 const foodItemSchema = new mongoose.Schema({
     
-    _id: {
-        type: String,
-        required: true
-    },
     restaurantId: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref:'User',
         required: true
     },
 
